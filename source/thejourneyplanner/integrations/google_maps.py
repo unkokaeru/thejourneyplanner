@@ -17,8 +17,7 @@ def get_distance_matrix(
     units: Literal["metric", "imperial"] = "metric",
 ) -> dict[str, Any]:
     """
-    Retrieve the distance and duration between two locations using the Google Maps Distance Matrix
-    API.
+    Retrieve the distance/duration between two locations using the Google Maps Distance Matrix API.
 
     Parameters
     ----------

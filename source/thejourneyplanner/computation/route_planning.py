@@ -162,8 +162,7 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
 
     def plan_route(self) -> dict[str, str | int]:
         """
-        Plan the route by finding nearby points of interest and calculating the total route
-        information.
+        Plan the route by finding nearby points of interest.
 
         Returns
         -------
