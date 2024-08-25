@@ -4,8 +4,9 @@ import logging
 import os
 from datetime import datetime
 
-from ..config.constants import Constants
 from rich.logging import RichHandler
+
+from ..config.constants import Constants
 
 
 def setup_logging(
