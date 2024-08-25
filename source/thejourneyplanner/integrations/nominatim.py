@@ -42,7 +42,11 @@ def find_longitude_and_latitude(location: str) -> tuple[float, float]:
     """
     # Construct the Nominatim API URL
     url = "https://nominatim.openstreetmap.org/search"
-    params = {"q": location, "format": "json", "limit": 1}  # Limit to one result
+    params: dict[str, str | int] = {
+        "q": location,
+        "format": "json",
+        "limit": 1,
+    }  # Limit to one result
 
     logger.debug(f"Requesting location data for: {location}")
 
