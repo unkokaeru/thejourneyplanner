@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>thejourneyplanner.config package &#8212; thejourneyplanner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="thejourneyplanner-config-package">
+<h1>thejourneyplanner.config package<a class="headerlink" href="#thejourneyplanner-config-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-thejourneyplanner.config.constants">
+<span id="thejourneyplanner-config-constants-module"></span><h2>thejourneyplanner.config.constants module<a class="headerlink" href="#module-thejourneyplanner.config.constants" title="Link to this heading">¶</a></h2>
+<p>constants.py: Constants for the application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">thejourneyplanner.config.constants.</span></span><span class="sig-name descname"><span class="pre">Constants</span></span><a class="headerlink" href="#thejourneyplanner.config.constants.Constants" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Constants for the application.</p>
+<p class="rubric">Notes</p>
+<p>This class contains constants used throughout the application.
+By storing constants in a single location, it is easier to
+manage and update them. Constants should be defined as class
+attributes and should be named in uppercase with underscores
+separating words.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.API_MAX">
+<span class="sig-name descname"><span class="pre">API_MAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.API_MAX" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.ARCHIVED_LOGS_DIRECTORY">
+<span class="sig-name descname"><span class="pre">ARCHIVED_LOGS_DIRECTORY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'logs/archived_logs'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.ARCHIVED_LOGS_DIRECTORY" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.COMPUTE_ROUTES_FIELD_MASK">
+<span class="sig-name descname"><span class="pre">COMPUTE_ROUTES_FIELD_MASK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.COMPUTE_ROUTES_FIELD_MASK" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.COMPUTE_ROUTES_URL">
+<span class="sig-name descname"><span class="pre">COMPUTE_ROUTES_URL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://routes.googleapis.com/directions/v2:computeRoutes'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.COMPUTE_ROUTES_URL" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.CONVERSION_FACTOR_MINUTES_TO_METERS">
+<span class="sig-name descname"><span class="pre">CONVERSION_FACTOR_MINUTES_TO_METERS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">750</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.CONVERSION_FACTOR_MINUTES_TO_METERS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.CONVERSION_FACTOR_SECONDS_TO_METERS">
+<span class="sig-name descname"><span class="pre">CONVERSION_FACTOR_SECONDS_TO_METERS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12.5</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.CONVERSION_FACTOR_SECONDS_TO_METERS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.DEFAULT_SAVE_DIRECTORY">
+<span class="sig-name descname"><span class="pre">DEFAULT_SAVE_DIRECTORY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'output/'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.DEFAULT_SAVE_DIRECTORY" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.DISTANCE_MATRIX_URL">
+<span class="sig-name descname"><span class="pre">DISTANCE_MATRIX_URL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://maps.googleapis.com/maps/api/distancematrix/json'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.DISTANCE_MATRIX_URL" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.FORBIDDEN_CODE">
+<span class="sig-name descname"><span class="pre">FORBIDDEN_CODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">403</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.FORBIDDEN_CODE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.LANGUAGE_CODE">
+<span class="sig-name descname"><span class="pre">LANGUAGE_CODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en-GB'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.LANGUAGE_CODE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.LOGGING_CONSOLE_FORMAT">
+<span class="sig-name descname"><span class="pre">LOGGING_CONSOLE_FORMAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'%(message)s'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.LOGGING_CONSOLE_FORMAT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.LOGGING_DATE_FORMAT">
+<span class="sig-name descname"><span class="pre">LOGGING_DATE_FORMAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[%X]'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.LOGGING_DATE_FORMAT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.LOGGING_LEVEL_CONSOLE_DEFAULT">
+<span class="sig-name descname"><span class="pre">LOGGING_LEVEL_CONSOLE_DEFAULT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'CRITICAL'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'ERROR'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'WARNING'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'INFO'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'DEBUG'</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'INFO'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.LOGGING_LEVEL_CONSOLE_DEFAULT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.LOGGING_LEVEL_LOGFILE_DEFAULT">
+<span class="sig-name descname"><span class="pre">LOGGING_LEVEL_LOGFILE_DEFAULT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'CRITICAL'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'ERROR'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'WARNING'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'INFO'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'DEBUG'</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DEBUG'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.LOGGING_LEVEL_LOGFILE_DEFAULT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.LOGGING_LOGFILE_FORMAT">
+<span class="sig-name descname"><span class="pre">LOGGING_LOGFILE_FORMAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'%(asctime)s</span> <span class="pre">-</span> <span class="pre">%(name)s</span> <span class="pre">-</span> <span class="pre">%(levelname)s</span> <span class="pre">-</span> <span class="pre">%(message)s'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.LOGGING_LOGFILE_FORMAT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.LOGGING_TIMESTAMP_FORMAT">
+<span class="sig-name descname"><span class="pre">LOGGING_TIMESTAMP_FORMAT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'%Y-%m-%d_%H-%M-%S'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.LOGGING_TIMESTAMP_FORMAT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.LOGGING_TRACEBACKS">
+<span class="sig-name descname"><span class="pre">LOGGING_TRACEBACKS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.LOGGING_TRACEBACKS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.LOG_FILE_NAME">
+<span class="sig-name descname"><span class="pre">LOG_FILE_NAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'log.txt'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.LOG_FILE_NAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.MAX_NEARBY_PLACES">
+<span class="sig-name descname"><span class="pre">MAX_NEARBY_PLACES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.MAX_NEARBY_PLACES" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.NEARBY_SEARCH_FIELD_MASK">
+<span class="sig-name descname"><span class="pre">NEARBY_SEARCH_FIELD_MASK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'places.displayName,places.location,places.formattedAddress,places.rating,places.userRatingCount'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.NEARBY_SEARCH_FIELD_MASK" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.NEARBY_SEARCH_RANK_BY">
+<span class="sig-name descname"><span class="pre">NEARBY_SEARCH_RANK_BY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DISTANCE'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.NEARBY_SEARCH_RANK_BY" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.NEARBY_SEARCH_TYPES">
+<span class="sig-name descname"><span class="pre">NEARBY_SEARCH_TYPES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['tourist_attraction']</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.NEARBY_SEARCH_TYPES" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.NEARBY_SEARCH_URL">
+<span class="sig-name descname"><span class="pre">NEARBY_SEARCH_URL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://places.googleapis.com/v1/places:searchNearby'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.NEARBY_SEARCH_URL" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.POSSIBLE_LOGGING_LEVELS">
+<span class="sig-name descname"><span class="pre">POSSIBLE_LOGGING_LEVELS</span></span><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.POSSIBLE_LOGGING_LEVELS" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-obj docutils literal notranslate"><span class="pre">Literal</span></code>[‘CRITICAL’, ‘ERROR’, ‘WARNING’, ‘INFO’, ‘DEBUG’]</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.SUCCESS_CODE">
+<span class="sig-name descname"><span class="pre">SUCCESS_CODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">200</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.SUCCESS_CODE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="thejourneyplanner.config.constants.Constants.SUCCESS_TEXT">
+<span class="sig-name descname"><span class="pre">SUCCESS_TEXT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OK'</span></em><a class="headerlink" href="#thejourneyplanner.config.constants.Constants.SUCCESS_TEXT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-thejourneyplanner.config">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-thejourneyplanner.config" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">thejourneyplanner</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, William Fayers.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/thejourneyplanner.config.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
