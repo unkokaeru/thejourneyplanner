@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>thejourneyplanner.utilities package &#8212; thejourneyplanner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="thejourneyplanner-utilities-package">
+<h1>thejourneyplanner.utilities package<a class="headerlink" href="#thejourneyplanner-utilities-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-thejourneyplanner.utilities.file_interaction">
+<span id="thejourneyplanner-utilities-file-interaction-module"></span><h2>thejourneyplanner.utilities.file_interaction module<a class="headerlink" href="#module-thejourneyplanner.utilities.file_interaction" title="Link to this heading">¶</a></h2>
+<p>file_interaction.py: Functions for interacting with files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="thejourneyplanner.utilities.file_interaction.duplicate_last_log">
+<span class="sig-prename descclassname"><span class="pre">thejourneyplanner.utilities.file_interaction.</span></span><span class="sig-name descname"><span class="pre">duplicate_last_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'output/'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#thejourneyplanner.utilities.file_interaction.duplicate_last_log" title="Link to this definition">¶</a></dt>
+<dd><p>Duplicate the most recently modified log file to the output directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>output_directory</strong> (<em>str</em><em>, </em><em>optional</em>) – The path to the output directory, by default Constants.DEFAULT_SAVE_DIRECTORY</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>FileNotFoundError</strong> – If no files are found in the source directory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="thejourneyplanner.utilities.file_interaction.open_html_file">
+<span class="sig-prename descclassname"><span class="pre">thejourneyplanner.utilities.file_interaction.</span></span><span class="sig-name descname"><span class="pre">open_html_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#thejourneyplanner.utilities.file_interaction.open_html_file" title="Link to this definition">¶</a></dt>
+<dd><p>Open the specified HTML file in the default web browser.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – The path to the HTML file to open.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-thejourneyplanner.utilities.polyline_interaction">
+<span id="thejourneyplanner-utilities-polyline-interaction-module"></span><h2>thejourneyplanner.utilities.polyline_interaction module<a class="headerlink" href="#module-thejourneyplanner.utilities.polyline_interaction" title="Link to this heading">¶</a></h2>
+<p>polyline_interaction.py: Contains functions for interacting with polylines.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="thejourneyplanner.utilities.polyline_interaction.plot_polyline">
+<span class="sig-prename descclassname"><span class="pre">thejourneyplanner.utilities.polyline_interaction.</span></span><span class="sig-name descname"><span class="pre">plot_polyline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_polyline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'output/'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#thejourneyplanner.utilities.polyline_interaction.plot_polyline" title="Link to this definition">¶</a></dt>
+<dd><p>Plot the given encoded polyline on a map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>encoded_polyline</strong> (<em>str</em>) – The encoded polyline to be plotted.</p></li>
+<li><p><strong>save_path</strong> (<em>str</em><em>, </em><em>optional</em>) – The path to save the map, by default Constants.DEFAULT_MAP_SAVE_PATH</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>PermissionError</strong> – If the save path is invalid.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The path to the saved map.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-thejourneyplanner.utilities.unit_conversion">
+<span id="thejourneyplanner-utilities-unit-conversion-module"></span><h2>thejourneyplanner.utilities.unit_conversion module<a class="headerlink" href="#module-thejourneyplanner.utilities.unit_conversion" title="Link to this heading">¶</a></h2>
+<p>unit_conversion.py: Functions for unit conversion.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="thejourneyplanner.utilities.unit_conversion.convert_distance">
+<span class="sig-prename descclassname"><span class="pre">thejourneyplanner.utilities.unit_conversion.</span></span><span class="sig-name descname"><span class="pre">convert_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#thejourneyplanner.utilities.unit_conversion.convert_distance" title="Link to this definition">¶</a></dt>
+<dd><p>Convert distance to the most appropriate units for readability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distance</strong> (<em>float</em>) – The distance to be converted.</p></li>
+<li><p><strong>units</strong> (<em>str</em>) – The units of the given distance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The distance in the most appropriate units.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="thejourneyplanner.utilities.unit_conversion.convert_duration">
+<span class="sig-prename descclassname"><span class="pre">thejourneyplanner.utilities.unit_conversion.</span></span><span class="sig-name descname"><span class="pre">convert_duration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#thejourneyplanner.utilities.unit_conversion.convert_duration" title="Link to this definition">¶</a></dt>
+<dd><p>Convert duration to the most appropriate units for readability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>duration</strong> (<em>int</em>) – The duration to be converted.</p></li>
+<li><p><strong>units</strong> (<em>str</em>) – The units of the given duration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The duration in the most appropriate units.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-thejourneyplanner.utilities">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-thejourneyplanner.utilities" title="Link to this heading">¶</a></h2>
+<p>Utilities package for the project.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">thejourneyplanner</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, William Fayers.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/thejourneyplanner.utilities.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
