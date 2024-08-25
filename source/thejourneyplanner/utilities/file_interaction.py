@@ -5,7 +5,6 @@ import shutil
 import webbrowser
 
 from ..config.constants import Constants
-
 from . import logger
 
 

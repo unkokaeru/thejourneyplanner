@@ -8,7 +8,6 @@ from ..integrations.google_maps import (
 )
 from ..integrations.nominatim import find_longitude_and_latitude
 from ..utilities.unit_conversion import convert_distance, convert_duration
-
 from . import logger
 
 

@@ -6,7 +6,6 @@ import folium
 import polyline
 
 from ..config.constants import Constants
-
 from . import logger
 
 

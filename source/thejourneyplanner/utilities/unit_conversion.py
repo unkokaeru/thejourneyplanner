@@ -28,9 +28,7 @@ def convert_distance(distance: float, units: str) -> str:
         return f"{distance:.1f} kilometers"
     else:
         logger.error(f"Invalid units: {units}")
-        return (
-            "Invalid units"  # TODO: Implement more distance unit options, such as miles
-        )
+        return "Invalid units"  # TODO: Implement more distance unit options, such as miles
 
 
 def convert_duration(duration: int, units: str) -> str:
@@ -55,9 +53,7 @@ def convert_duration(duration: int, units: str) -> str:
         elif duration < 3600:
             return f"{duration // 60:.0f} minutes and {duration % 60:.0f} seconds"
         else:
-            return (
-                f"{duration // 3600:.0f} hours and {duration % 3600 // 60:.0f} minutes"
-            )
+            return f"{duration // 3600:.0f} hours and {duration % 3600 // 60:.0f} minutes"
     elif units == "minutes":
         if duration < 60:
             return f"{duration:.0f} minutes"
@@ -65,6 +61,4 @@ def convert_duration(duration: int, units: str) -> str:
             return f"{duration // 60:.0f} hours and {duration % 60:.0f} minutes"
     else:
         logger.error(f"Invalid units: {units}")
-        return (
-            "Invalid units"  # TODO: Implement more duration unit options, such as hours
-        )
+        return "Invalid units"  # TODO: Implement more duration unit options, such as hours

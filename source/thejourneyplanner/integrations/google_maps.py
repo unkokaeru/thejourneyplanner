@@ -6,7 +6,6 @@ from typing import Any, List, Literal, Tuple
 import requests
 
 from ..config.constants import Constants
-
 from . import logger
 
 
