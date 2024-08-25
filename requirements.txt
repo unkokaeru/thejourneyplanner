@@ -1,0 +1,4 @@
+folium==0.12.1
+polyline==1.4.0
+requests==2.25.1
+rich==12.11.0
