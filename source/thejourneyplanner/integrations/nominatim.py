@@ -37,7 +37,8 @@ def find_longitude_and_latitude(location: str) -> tuple[float, float]:
     This function finds the longitude and latitude of a given location.
     It takes in the location as a string and returns a tuple containing
     the longitude and latitude of the location.
-    It uses the Nominatim API to find the location. If the location is not found, it raises a ValueError.
+    It uses the Nominatim API to find the location. If the location is
+    not found, it raises aValueError.
     """
     # Construct the Nominatim API URL
     url = "https://nominatim.openstreetmap.org/search"

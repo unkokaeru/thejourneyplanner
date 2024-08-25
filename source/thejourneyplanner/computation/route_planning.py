@@ -56,7 +56,8 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
         self.end = (self.end[0], self.end_latlong)
 
         logger.debug(
-            f"Initial journey details: {self.remaining_duration}, {self.start_latlong}, {self.end_latlong}"
+            f"Initial journey details: "
+            f"{self.remaining_duration}, {self.start_latlong}, {self.end_latlong}"
         )
 
     def _check_route_possibility(self) -> None:
@@ -119,7 +120,8 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
                 self.start_latlong = selected_latlong
 
                 logger.info(
-                    f"Added {selected_latlong} to route. Remaining duration: {self.remaining_duration}"
+                    f"Added {selected_latlong} to route. "
+                    f"Remaining duration: {self.remaining_duration}"
                 )
                 return True  # A place was reachable
         return False  # No places were reachable
@@ -147,16 +149,21 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
         logger.debug(f"Total route information: {total_route_information}")
         logger.info(
             f"The route between {self.start[0]} and {self.end[0]} "
-            f"has been planned successfully with {len(self.intermediate_latlongs)} intermediate stops.\n"
-            f"It should take {convert_duration(total_route_information['duration_seconds'], 'seconds')} "
-            f"to travel the {convert_distance(total_route_information['distance_meters'], 'meters')} of the journey."
+            f"has been planned successfully with "
+            f"{len(self.intermediate_latlongs)} intermediate stops.\n"
+            f"It should take "
+            f"{convert_duration(total_route_information['duration_seconds'], 'seconds')} "
+            f"to travel the "
+            f"{convert_distance(total_route_information['distance_meters'], 'meters')} "
+            f"of the journey."
         )
 
         return total_route_information
 
     def plan_route(self) -> dict[str, str | int]:
         """
-        Plan the route by finding nearby points of interest and calculating the total route information.
+        Plan the route by finding nearby points of interest and calculating the total route
+        information.
 
         Returns
         -------

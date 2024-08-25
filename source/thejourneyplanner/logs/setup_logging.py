@@ -3,30 +3,30 @@
 import logging
 import os
 from datetime import datetime
-from typing import Literal
-
-from rich.logging import RichHandler
 
 from config.constants import Constants
+from rich.logging import RichHandler
 
 
 def setup_logging(
-    console_logging_level: Literal[
-        "CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG", "NOTSET"
-    ] = Constants.LOGGING_LEVEL_CONSOLE_DEFAULT,
-    file_logging_level: Literal[
-        "CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG", "NOTSET"
-    ] = Constants.LOGGING_LEVEL_LOGFILE_DEFAULT,
+    console_logging_level: Constants.POSSIBLE_LOGGING_LEVELS = (
+        Constants.LOGGING_LEVEL_CONSOLE_DEFAULT
+    ),
+    file_logging_level: Constants.POSSIBLE_LOGGING_LEVELS = (
+        Constants.LOGGING_LEVEL_LOGFILE_DEFAULT
+    ),
 ) -> None:
     """
     Setup logging configuration.
 
     Parameters
     ----------
-    console_logging_level : Literal["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG", "NOTSET"], optional
-        The logging level for the console handler, by default Constants.LOGGING_LEVEL_CONSOLE_DEFAULT
-    file_logging_level : Literal["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG", "NOTSET"], optional
-        The logging level for the file handler, by default Constants.LOGGING_LEVEL_LOGFILE_DEFAULT
+    console_logging_level : Constants.POSSIBLE_LOGGING_LEVELS, optional
+        The logging level for the console handler, by default
+        Constants.LOGGING_LEVEL_CONSOLE_DEFAULT
+    file_logging_level : Constants.POSSIBLE_LOGGING_LEVELS, optional
+        The logging level for the file handler, by default
+        Constants.LOGGING_LEVEL_LOGFILE_DEFAULT
 
     Raises
     ------

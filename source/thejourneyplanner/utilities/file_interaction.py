@@ -73,11 +73,7 @@ def open_html_file(file_path: str) -> None:
     """
     logger.debug(f"Opening HTML file '{file_path}' in the default web browser.")
     absolute_path = os.path.abspath(file_path)
-
-    logger.debug(f"Absolute path: {absolute_path}")
-
-    # Format the file URL correctly for Windows
-    file_url = f'file:///{absolute_path.replace("\\", "/")}'
+    file_url = f'file:///{absolute_path.replace(os.path.sep, "/")}'
 
     webbrowser.open(file_url, new=2)
     logger.info(
