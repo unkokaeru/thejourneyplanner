@@ -36,8 +36,37 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
 </section>
-<section id="thejourneyplanner-logs-setup-logging-module">
-<h2>thejourneyplanner.logs.setup_logging module<a class="headerlink" href="#thejourneyplanner-logs-setup-logging-module" title="Link to this heading">¶</a></h2>
+<section id="module-thejourneyplanner.logs.setup_logging">
+<span id="thejourneyplanner-logs-setup-logging-module"></span><h2>thejourneyplanner.logs.setup_logging module<a class="headerlink" href="#module-thejourneyplanner.logs.setup_logging" title="Link to this heading">¶</a></h2>
+<p>setup_logging.py: Set up the logging configuration.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="thejourneyplanner.logs.setup_logging.setup_logging">
+<span class="sig-prename descclassname"><span class="pre">thejourneyplanner.logs.setup_logging.</span></span><span class="sig-name descname"><span class="pre">setup_logging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">console_logging_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'CRITICAL'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'ERROR'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'WARNING'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'INFO'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'DEBUG'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'INFO'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_logging_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'CRITICAL'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'ERROR'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'WARNING'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'INFO'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'DEBUG'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'DEBUG'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#thejourneyplanner.logs.setup_logging.setup_logging" title="Link to this definition">¶</a></dt>
+<dd><p>Setup logging configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>console_logging_level</strong> (<em>Constants.POSSIBLE_LOGGING_LEVELS</em><em>, </em><em>optional</em>) – The logging level for the console handler, by default
+Constants.LOGGING_LEVEL_CONSOLE_DEFAULT</p></li>
+<li><p><strong>file_logging_level</strong> (<em>Constants.POSSIBLE_LOGGING_LEVELS</em><em>, </em><em>optional</em>) – The logging level for the file handler, by default
+Constants.LOGGING_LEVEL_LOGFILE_DEFAULT</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the logging level is invalid.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setup_logging</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setup_logging</span><span class="p">(</span><span class="n">console_logging_level</span><span class="o">=</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span> <span class="n">file_logging_level</span><span class="o">=</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p>…</p>
+</dd></dl>
+
 </section>
 <section id="module-thejourneyplanner.logs">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-thejourneyplanner.logs" title="Link to this heading">¶</a></h2>
