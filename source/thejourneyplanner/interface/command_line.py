@@ -2,12 +2,12 @@
 
 import logging
 from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
-from typing import Any, Dict
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
 
-def command_line_interface() -> Dict[str, Any]:
+def command_line_interface() -> dict[str, Any]:
     """
     Takes arguments from the command line and returns them as a dictionary.
 
@@ -71,7 +71,7 @@ def command_line_interface() -> Dict[str, Any]:
     parsed_args = argparser.parse_args()
 
     # Create a dictionary to return the parsed arguments
-    arguments: Dict[str, Any] = {
+    arguments: dict[str, Any] = {
         "api_key": parsed_args.api_key,
         "output": parsed_args.output,
         "start": parsed_args.start,

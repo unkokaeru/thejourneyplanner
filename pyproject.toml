@@ -110,3 +110,11 @@ max-line-length = 100
 exclude = ['.*', 'docs/', '**/__pycache__', 'setup.py', "**/__init__.py"]
 docstring-convention = "numpy"
 ignore = ['W503', 'D301', 'D401']
+
+[tool.ruff]
+target-version = "py39"
+
+[tool.ruff.lint]
+extend-select = [
+    "UP",
+]
