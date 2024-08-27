@@ -1,9 +1,10 @@
 """command_line.py: Command line interface for the application."""
 
+import logging
 from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
 from typing import Any, Dict
 
-from . import logger
+logger = logging.getLogger(__name__)
 
 
 def command_line_interface() -> Dict[str, Any]:

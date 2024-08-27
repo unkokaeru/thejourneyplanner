@@ -1,8 +1,10 @@
 """nominatim.py: Functions for interacting with the Nominatim API."""
 
+import logging
+
 import requests
 
-from . import logger
+logger = logging.getLogger(__name__)
 
 
 def find_longitude_and_latitude(location: str) -> tuple[float, float]:

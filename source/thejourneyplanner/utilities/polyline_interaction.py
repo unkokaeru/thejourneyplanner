@@ -1,12 +1,14 @@
 """polyline_interaction.py: Contains functions for interacting with polylines."""
 
+import logging
 import os
 
 import folium
 import polyline
 
 from ..config.constants import Constants
-from . import logger
+
+logger = logging.getLogger(__name__)
 
 
 def plot_polyline(encoded_polyline: str, save_path: str = Constants.DEFAULT_SAVE_DIRECTORY) -> str:

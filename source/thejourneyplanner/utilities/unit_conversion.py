@@ -1,6 +1,8 @@
 """unit_conversion.py: Functions for unit conversion."""
 
-from . import logger
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def convert_distance(distance: float, units: str) -> str:

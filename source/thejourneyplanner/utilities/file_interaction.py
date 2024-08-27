@@ -1,11 +1,13 @@
 """file_interaction.py: Functions for interacting with files."""
 
+import logging
 import os
 import shutil
 import webbrowser
 
 from ..config.constants import Constants
-from . import logger
+
+logger = logging.getLogger(__name__)
 
 
 def duplicate_last_log(

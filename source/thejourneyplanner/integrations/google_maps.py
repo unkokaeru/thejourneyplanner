@@ -1,12 +1,14 @@
 """google_maps.py: Integration with the Google Maps API."""
 
 import json
+import logging
 from typing import Any, Literal
 
 import requests
 
 from ..config.constants import Constants
-from . import logger
+
+logger = logging.getLogger(__name__)
 
 
 def get_distance_matrix(

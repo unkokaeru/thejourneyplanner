@@ -1,5 +1,7 @@
 """route_planning.py: Functions for route planning."""
 
+import logging
+
 from ..config.constants import Constants
 from ..integrations.google_maps import (
     compute_route,
@@ -8,7 +10,8 @@ from ..integrations.google_maps import (
 )
 from ..integrations.nominatim import find_longitude_and_latitude
 from ..utilities.unit_conversion import convert_distance, convert_duration
-from . import logger
+
+logger = logging.getLogger(__name__)
 
 
 class RoutePlanner:  # TODO: Re-work logic to create a more circular route
