@@ -1,7 +1,7 @@
 """google_maps.py: Integration with the Google Maps API."""
 
 import json
-from typing import Any, List, Literal, Tuple
+from typing import Any, Literal
 
 import requests
 
@@ -54,7 +54,7 @@ def get_distance_matrix(
         'duration_value': 6398
     }
     """
-    url: str = (
+    url = (
         f"{Constants.DISTANCE_MATRIX_URL}?"
         f"destinations={end_location}&origins={start_location}&units={units}&key={api_key}"
     )
@@ -102,10 +102,10 @@ def get_distance_matrix(
 
 def search_nearby_places(
     api_key: str,
-    latlong: Tuple[float, float],
+    latlong: tuple[float, float],
     radius: float,
-    types_list: List[str] = Constants.NEARBY_SEARCH_TYPES,
-) -> List[dict[str, Any]]:
+    types_list: list[str] = Constants.NEARBY_SEARCH_TYPES,
+) -> list[dict[str, Any]]:
     """
     Search for nearby places using the Google Places API.
 
@@ -205,9 +205,9 @@ def search_nearby_places(
 
 def compute_route(
     api_key: str,
-    origin_latlong: Tuple[float, float],
-    destination_latlong: Tuple[float, float],
-    intermediate_latlongs: List[Tuple[float, float]] = [],
+    origin_latlong: tuple[float, float],
+    destination_latlong: tuple[float, float],
+    intermediate_latlongs: list[tuple[float, float]] = [],
     travel_mode: str = "DRIVE",  # TODO: Add support for other travel modes
     routing_preference: str = "TRAFFIC_AWARE",  # TODO: Add support for other routing preferences
     compute_alternative_routes: bool = False,
