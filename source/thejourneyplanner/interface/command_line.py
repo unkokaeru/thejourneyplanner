@@ -68,6 +68,14 @@ def command_line_interface() -> dict[str, Any]:
         help="Duration of the journey in minutes.",
     )  # Duration of the journey
 
+    argparser.add_argument(
+        "--open_map",
+        "-m",
+        action="store_true",
+        required=False,
+        help="Automatically open the map in the browser after generation.",
+    )  # Automatically open the map in the browser after generation
+
     parsed_args = argparser.parse_args()
 
     # Create a dictionary to return the parsed arguments
@@ -77,6 +85,7 @@ def command_line_interface() -> dict[str, Any]:
         "start": parsed_args.start,
         "end": parsed_args.end,
         "duration": parsed_args.duration,
+        "open_map": parsed_args.open_map,
     }  # TODO: Add more arguments as needed, e.g. logging level and output file
 
     logger.debug(f"Arguments: {arguments}")

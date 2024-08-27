@@ -5,7 +5,7 @@ from logging import shutdown as shutdown_logging
 from .computation.route_planning import RoutePlanner
 from .interface.command_line import command_line_interface
 from .logs.setup_logging import setup_logging
-from .utilities.file_interaction import duplicate_last_log, open_html_file
+from .utilities.file_interaction import duplicate_last_log
 from .utilities.polyline_interaction import plot_polyline
 
 
@@ -27,7 +27,11 @@ def main() -> None:
     )
 
     route_details = route_planner.plan_route()
-    open_html_file(plot_polyline(str(route_details["encoded_polyline"]), user_arguments["output"]))
+    plot_polyline(
+        str(route_details["encoded_polyline"]),
+        user_arguments["output"],
+        user_arguments["open_map"],
+    )
 
     duplicate_last_log(user_arguments["output"])
 

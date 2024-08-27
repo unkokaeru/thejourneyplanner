@@ -7,11 +7,14 @@ import folium
 import polyline
 
 from ..config.constants import Constants
+from .file_interaction import open_html_file
 
 logger = logging.getLogger(__name__)
 
 
-def plot_polyline(encoded_polyline: str, save_path: str = Constants.DEFAULT_SAVE_DIRECTORY) -> str:
+def plot_polyline(
+    encoded_polyline: str, save_path: str = Constants.DEFAULT_SAVE_DIRECTORY, open_map: bool = False
+) -> str:
     """
     Plot the given encoded polyline on a map.
 
@@ -21,6 +24,8 @@ def plot_polyline(encoded_polyline: str, save_path: str = Constants.DEFAULT_SAVE
         The encoded polyline to be plotted.
     save_path : str, optional
         The path to save the map, by default Constants.DEFAULT_MAP_SAVE_PATH
+    open_map : bool, optional
+        Whether to open the map in the default web browser, by default False
 
     Raises
     ------
@@ -55,6 +60,10 @@ def plot_polyline(encoded_polyline: str, save_path: str = Constants.DEFAULT_SAVE
     try:
         map_location = save_path + "map.html"
         folium_map.save(map_location)
+
+        if open_map:
+            open_html_file(map_location)
+
         return map_location
     except PermissionError:
         logger.fatal("Permission denied. Please provide a valid path.")
