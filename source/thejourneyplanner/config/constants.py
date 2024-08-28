@@ -26,7 +26,6 @@ class Constants:
     LOGGING_TIMESTAMP_FORMAT: str = "%Y-%m-%d_%H-%M-%S"
     LOGGING_DATE_FORMAT: str = "[%X]"
     LOGGING_TRACEBACKS: bool = True
-    ARCHIVED_LOGS_DIRECTORY: Path = Path("logs/archived_logs")
 
     # API response constants
     SUCCESS_CODE: int = 200

@@ -2,7 +2,7 @@
 
 import logging
 import os
-from datetime import datetime
+from pathlib import Path
 
 from rich.logging import RichHandler
 
@@ -10,6 +10,7 @@ from ..config.constants import Constants
 
 
 def setup_logging(
+    log_output_location: Path = Constants.DEFAULT_LOG_SAVE_PATH,
     console_logging_level: Constants.POSSIBLE_LOGGING_LEVELS = (
         Constants.LOGGING_LEVEL_CONSOLE_DEFAULT
     ),
@@ -22,6 +23,8 @@ def setup_logging(
 
     Parameters
     ----------
+    log_output_location : Path, optional
+        The path to the log file, by default Constants.DEFAULT_LOG_SAVE_PATH
     console_logging_level : Constants.POSSIBLE_LOGGING_LEVELS, optional
         The logging level for the console handler, by default
         Constants.LOGGING_LEVEL_CONSOLE_DEFAULT
@@ -39,10 +42,6 @@ def setup_logging(
     >>> setup_logging()
 
     >>> setup_logging(console_logging_level="WARNING", file_logging_level="DEBUG")
-
-    Notes
-    -----
-    ...
     """
     valid_levels = {
         "CRITICAL": logging.CRITICAL,
@@ -63,14 +62,10 @@ def setup_logging(
             )
 
     # Create logs directory if it does not exist
-    os.makedirs(Constants.ARCHIVED_LOGS_DIRECTORY, exist_ok=True)
-
-    # Create a log file with a timestamp
-    timestamp = datetime.now().strftime(Constants.LOGGING_TIMESTAMP_FORMAT)
-    logging_file = os.path.join(Constants.ARCHIVED_LOGS_DIRECTORY, f"{timestamp}.log")
+    os.makedirs(log_output_location, exist_ok=True)
 
     # Set up file handler
-    file_handler = logging.FileHandler(logging_file)
+    file_handler = logging.FileHandler(log_output_location)
     file_handler.setLevel(valid_levels[file_logging_level])
     file_handler.setFormatter(
         logging.Formatter(

@@ -7,7 +7,6 @@ from .computation.route_planning import RoutePlanner
 from .config.constants import Constants
 from .interface.command_line import command_line_interface
 from .logs.setup_logging import setup_logging
-from .utilities.file_interaction import duplicate_last_log
 from .utilities.polyline_interaction import plot_polyline
 
 
@@ -38,6 +37,9 @@ def main() -> None:
     )
     open_map = user_arguments["open_map"] if user_arguments["open_map"] else False
 
+    # Setup logging
+    setup_logging(log_output_location)
+
     # Plan the route
     route_planner = RoutePlanner(user_arguments["api_key"])
     route_details = route_planner.plan_route(
@@ -53,11 +55,8 @@ def main() -> None:
         open_map,
     )
 
-    # Duplicate the log file to the output location
-    duplicate_last_log(log_output_location)
+    shutdown_logging()
 
 
 if __name__ == "__main__":
-    setup_logging()
     main()
-    shutdown_logging()
