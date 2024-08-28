@@ -33,7 +33,7 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
         self.intermediate_latlongs: list[tuple[float, float]] = []
         self.selected_latlongs: set[tuple[float, float]] = set()
 
-    def initialise_journey(self, start: str, end: str, duration: float) -> None:
+    def _initialise_journey(self, start: str, end: str, duration: float) -> None:
         """
         Initialise journey details and calculate start and end latitude/longitude.
 
@@ -230,7 +230,7 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
         This method initializes the journey and iteratively finds nearby places until
         the remaining duration is exhausted or no more reachable places are found.
         """
-        self.initialise_journey(start, end, duration)
+        self._initialise_journey(start, end, duration)
 
         while self.remaining_duration > 0:
             if len(self.intermediate_latlongs) >= Constants.API_MAX:
