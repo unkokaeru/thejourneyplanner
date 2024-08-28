@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 def find_longitude_and_latitude(
     location: str,
-) -> tuple[float, float]:  # TODO: Use this function for the initial location finding
+) -> tuple[float, float]:
     """
     Find the longitude and latitude of a location using the Nominatim API.
 

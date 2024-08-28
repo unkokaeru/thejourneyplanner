@@ -5,7 +5,6 @@ import logging
 from ..config.constants import Constants
 from ..integrations.google_maps import (
     compute_route,
-    get_distance_matrix,
     search_nearby_places,
 )
 from ..integrations.nominatim import find_longitude_and_latitude
@@ -52,42 +51,44 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
             If the ending location is not reachable within the specified duration.
         """
         self.remaining_duration = duration
-        start_to_end_distance_matrix = get_distance_matrix(self.api_key, start, end)
 
-        self.start_latlong = find_longitude_and_latitude(
-            start_to_end_distance_matrix["start_location"]
-        )
-        self.end_latlong = find_longitude_and_latitude(start_to_end_distance_matrix["end_location"])
+        self.start_latlong = find_longitude_and_latitude(start)
+        self.end_latlong = find_longitude_and_latitude(end)
 
         logger.debug(
             f"Initial journey details: "
             f"{self.remaining_duration}, {self.start_latlong}, {self.end_latlong}"
         )
 
-        self._check_route_possibility(start, end)
+        if not self._check_route_possibility(self.start_latlong, self.end_latlong):
+            logger.fatal("Ending location not reachable within the specified duration.")
+            raise ValueError("Ending location not reachable within the specified duration.")
 
-    def _check_route_possibility(self, start: str, end: str) -> None:
+    def _check_route_possibility(
+        self, start_latlong: tuple[float, float], end_latlong: tuple[float, float]
+    ) -> bool:
         """
         Check if the route is possible without any intermediate stops.
 
         Parameters
         ----------
-        start : str
-            The starting location for the journey.
-        end : str
-            The ending location for the journey.
+        start_latlong : tuple[float, float]
+            The starting latitude/longitude for the journey.
+        end_latlong : tuple[float, float]
+            The ending latitude/longitude for the journey.
 
-        Raises
-        ------
-        ValueError
-            If the ending location is not reachable within the specified duration.
+        Returns
+        -------
+        bool
+            True if the route is possible, False otherwise.
         """
         if (
-            get_distance_matrix(self.api_key, start, end)["duration_value"]
-            > self.remaining_duration
+            compute_route(self.api_key, start_latlong, end_latlong)["duration_seconds"]
+            <= self.remaining_duration
         ):
-            logger.fatal("Ending location not reachable within the specified duration.")
-            raise ValueError("Ending location not reachable within the specified duration.")
+            return True
+        else:
+            return False
 
     def _find_nearby_places(self) -> list[dict]:
         """
