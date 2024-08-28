@@ -51,7 +51,7 @@ def plot_polyline(
 
     try:
         map_location = save_path
-        os.makedirs(os.path.dirname(map_location), exist_ok=True)
+        os.makedirs(map_location.parent, exist_ok=True)
         folium_map.save(map_location)
 
         if open_map:
