@@ -61,6 +61,6 @@ class Constants:
     CONVERSION_FACTOR_SECONDS_TO_METERS: float = CONVERSION_FACTOR_MINUTES_TO_METERS / 60
 
     # Default values
-    DEFAULT_LOG_SAVE_PATH: Path = Path("output/log.txt")
-    DEFAULT_MAP_SAVE_PATH: Path = Path("output/map.html")
+    DEFAULT_LOG_SAVE_PATH: Path = Path("thejourneyplanner-log.txt")
+    DEFAULT_MAP_SAVE_PATH: Path = Path("thejourneyplanner-map.html")
     DEFAULT_OPEN_MAP: bool = False
