@@ -7,6 +7,7 @@ Changelog
 
 Fix
 ~~~
+- Log creation bug. [William F]
 - Logging save functionality. [William F]
 - Default save location. [William F]
 - Typing and TypeErrors. [William F]
@@ -22,6 +23,9 @@ Fix
 
 Other
 ~~~~~
+- @auto Update docs. [unkokaeru]
+- Bump version: 0.2.4 -> 0.2.5. [William F]
+- Update CHANGELOG.md. [William F]
 - @auto Update docs. [unkokaeru]
 - Merge branch 'main' of https://github.com/unkokaeru/thejourneyplanner.
   [William F]
