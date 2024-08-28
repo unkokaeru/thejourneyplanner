@@ -4,10 +4,14 @@ import logging
 
 import requests
 
+from ..config.constants import Constants
+
 logger = logging.getLogger(__name__)
 
 
-def find_longitude_and_latitude(location: str) -> tuple[float, float]:
+def find_longitude_and_latitude(
+    location: str,
+) -> tuple[float, float]:  # TODO: Use this function for the initial location finding
     """
     Find the longitude and latitude of a location using the Nominatim API.
 
@@ -43,7 +47,7 @@ def find_longitude_and_latitude(location: str) -> tuple[float, float]:
     not found, it raises aValueError.
     """
     # Construct the Nominatim API URL
-    url = "https://nominatim.openstreetmap.org/search"
+    url = Constants.NOMINATIM_URL
     params: dict[str, str | int] = {
         "q": location,
         "format": "json",
@@ -52,7 +56,7 @@ def find_longitude_and_latitude(location: str) -> tuple[float, float]:
 
     logger.debug(f"Requesting location data for: {location}")
 
-    headers = {"User-Agent": "Mozilla/5.0"}  # Set a user agent to avoid 429 errors
+    headers = {"User-Agent": Constants.NOMINATIM_USER_AGENT}  # Set a user agent to avoid 429 errors
 
     try:
         response = requests.get(url, params=params, headers=headers)

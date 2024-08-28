@@ -2,6 +2,7 @@
 
 import logging
 import os
+from pathlib import Path
 
 import folium
 import polyline
@@ -13,8 +14,10 @@ logger = logging.getLogger(__name__)
 
 
 def plot_polyline(
-    encoded_polyline: str, save_path: str = Constants.DEFAULT_SAVE_DIRECTORY, open_map: bool = False
-) -> str:
+    encoded_polyline: str,
+    save_path: Path = Constants.DEFAULT_MAP_SAVE_PATH,
+    open_map: bool = Constants.DEFAULT_OPEN_MAP,
+) -> Path:
     """
     Plot the given encoded polyline on a map.
 
@@ -22,7 +25,7 @@ def plot_polyline(
     ----------
     encoded_polyline : str
         The encoded polyline to be plotted.
-    save_path : str, optional
+    save_path : Path, optional
         The path to save the map, by default Constants.DEFAULT_MAP_SAVE_PATH
     open_map : bool, optional
         Whether to open the map in the default web browser, by default False
@@ -34,21 +37,10 @@ def plot_polyline(
 
     Returns
     -------
-    str
+    Path
         The path to the saved map.
     """
     logger.info("Plotting the polyline on a map")
-
-    if not save_path:  # If the save path is empty
-        save_path = Constants.DEFAULT_SAVE_DIRECTORY
-
-    # Create the save path if it does not exist
-    if os.path.exists(save_path):
-        logger.debug(f"Save path '{save_path}' exists.")
-    else:
-        logger.debug(f"Save path '{save_path}' does not exist.")
-        os.makedirs(save_path)
-        logger.debug(f"Save path '{save_path}' created.")
 
     decoded_polyline = polyline.decode(encoded_polyline)
 
@@ -58,7 +50,8 @@ def plot_polyline(
     folium.PolyLine(decoded_polyline).add_to(folium_map)
 
     try:
-        map_location = save_path + "map.html"
+        map_location = save_path
+        os.makedirs(os.path.dirname(map_location), exist_ok=True)
         folium_map.save(map_location)
 
         if open_map:
