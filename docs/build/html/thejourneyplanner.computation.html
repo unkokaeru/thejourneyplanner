@@ -46,14 +46,14 @@
 <p>Finds a route between two locations with intermediate stops.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="thejourneyplanner.computation.route_planning.RoutePlanner.initialise_journey">
-<span class="sig-name descname"><span class="pre">initialise_journey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#thejourneyplanner.computation.route_planning.RoutePlanner.initialise_journey" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">initialise_journey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#thejourneyplanner.computation.route_planning.RoutePlanner.initialise_journey" title="Link to this definition">¶</a></dt>
 <dd><p>Initialise journey details and calculate start and end latitude/longitude.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>start</strong> (<em>str</em>) – The starting location for the journey.</p></li>
 <li><p><strong>end</strong> (<em>str</em>) – The ending location for the journey.</p></li>
-<li><p><strong>duration</strong> (<em>int</em>) – The total duration of the journey, in seconds.</p></li>
+<li><p><strong>duration</strong> (<em>float</em>) – The total duration of the journey, in seconds.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
@@ -64,21 +64,21 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="thejourneyplanner.computation.route_planning.RoutePlanner.plan_route">
-<span class="sig-name descname"><span class="pre">plan_route</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#thejourneyplanner.computation.route_planning.RoutePlanner.plan_route" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plan_route</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#thejourneyplanner.computation.route_planning.RoutePlanner.plan_route" title="Link to this definition">¶</a></dt>
 <dd><p>Plan the route by finding nearby points of interest.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>start</strong> (<em>str</em>) – The starting location for the journey.</p></li>
 <li><p><strong>end</strong> (<em>str</em>) – The ending location for the journey.</p></li>
-<li><p><strong>duration</strong> (<em>int</em>) – The total duration of the journey, in seconds.</p></li>
+<li><p><strong>duration</strong> (<em>float</em>) – The total duration of the journey, in seconds.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A dictionary containing the route information, including duration and distance.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict[str, str | int]</p>
+<dd class="field-odd"><p>dict[str, str | float]</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
