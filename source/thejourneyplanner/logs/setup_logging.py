@@ -61,8 +61,8 @@ def setup_logging(
                 + ", ".join(valid_levels.keys())
             )
 
-    # Create logs directory if it does not exist
-    os.makedirs(log_output_location, exist_ok=True)
+    # Create logs parent directory if it does not exist
+    os.makedirs(log_output_location.parent, exist_ok=True)
 
     # Set up file handler
     file_handler = logging.FileHandler(log_output_location)
