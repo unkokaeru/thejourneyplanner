@@ -7,6 +7,11 @@ Changelog
 
 Fix
 ~~~
+- RoutePlanner class reusability improvement. [William F]
+- Constants typing, magic strings, migration to pathlib. [William F]
+- Ruff UP config + typing. [William F]
+- Logging hierarchy. [William F]
+- Typing. [William F]
 - Relative import. [William F]
 - Params type hinting. [William F]
 - Minor docstring syntax. [William F]
@@ -14,6 +19,16 @@ Fix
 
 Other
 ~~~~~
+- @auto Update docs. [unkokaeru]
+- Merge branch 'main' of https://github.com/unkokaeru/thejourneyplanner.
+  [William F]
+- @auto Update docs. [unkokaeru]
+- Merge branch 'main' of https://github.com/unkokaeru/thejourneyplanner.
+  [William F]
+- @auto Update docs. [unkokaeru]
+- Feat: configurable auto map opening. [William F]
+- Bump version: 0.2.0 -> 0.2.1. [William F]
+- Update CHANGELOG.md. [William F]
 - @auto Formatting. [unkokaeru]
 - Merge branch 'main' of https://github.com/unkokaeru/thejourneyplanner.
   [William F]
