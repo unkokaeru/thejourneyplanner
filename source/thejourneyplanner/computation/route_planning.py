@@ -3,10 +3,7 @@
 import logging
 
 from ..config.constants import Constants
-from ..integrations.google_maps import (
-    compute_route,
-    search_nearby_places,
-)
+from ..integrations.google_maps import compute_route, search_nearby_places
 from ..integrations.nominatim import find_longitude_and_latitude
 from ..utilities.unit_conversion import convert_distance, convert_duration
 
