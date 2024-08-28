@@ -17,56 +17,74 @@ logger = logging.getLogger(__name__)
 class RoutePlanner:  # TODO: Re-work logic to create a more circular route
     """Finds a route between two locations with intermediate stops."""
 
-    def __init__(self, api_key: str, start: str, end: str, duration: int):
+    def __init__(self, api_key: str):
         """
-        Initialise the RoutePlanner with API key, start and end locations, and duration.
+        Initialise the RoutePlanner with API key.
 
         Parameters
         ----------
         api_key : str
             The API key for the Google Maps API.
+        """
+        self.api_key = api_key
+        self.start_latlong: tuple[float, float] = (0, 0)
+        self.end_latlong: tuple[float, float] = (0, 0)
+        self.remaining_duration = 0
+        self.intermediate_latlongs: list[tuple[float, float]] = []
+        self.selected_latlongs: set[tuple[float, float]] = set()
+
+    def initialise_journey(self, start: str, end: str, duration: int) -> None:
+        """
+        Initialise journey details and calculate start and end latitude/longitude.
+
+        Parameters
+        ----------
         start : str
             The starting location for the journey.
         end : str
             The ending location for the journey.
         duration : int
             The total duration of the journey, in seconds.
+
+        Raises
+        ------
+        ValueError
+            If the ending location is not reachable within the specified duration.
         """
-        self.api_key = api_key
-        self.start: tuple[str, tuple[float, float]] = (start, (0, 0))
-        self.end: tuple[str, tuple[float, float]] = (end, (0, 0))
-        self.duration = duration
-        self.start_latlong: tuple[float, float] = (0, 0)
-        self.end_latlong: tuple[float, float] = (0, 0)
         self.remaining_duration = duration
-        self.intermediate_latlongs: list[tuple[float, float]] = []
-        self.selected_latlongs: set[tuple[float, float]] = set()
-
-        self._initialise_journey()
-        self._check_route_possibility()
-
-    def _initialise_journey(self) -> None:
-        """Initialise journey details and calculate start and end latitude/longitude."""
-        start_to_end_distance_matrix = get_distance_matrix(self.api_key, self.start[0], self.end[0])
+        start_to_end_distance_matrix = get_distance_matrix(self.api_key, start, end)
 
         self.start_latlong = find_longitude_and_latitude(
             start_to_end_distance_matrix["start_location"]
         )
         self.end_latlong = find_longitude_and_latitude(start_to_end_distance_matrix["end_location"])
 
-        self.start = (self.start[0], self.start_latlong)
-        self.end = (self.end[0], self.end_latlong)
-
         logger.debug(
             f"Initial journey details: "
             f"{self.remaining_duration}, {self.start_latlong}, {self.end_latlong}"
         )
 
-    def _check_route_possibility(self) -> None:
-        """Check if the route is possible without any intermediate stops."""
+        self._check_route_possibility(start, end)
+
+    def _check_route_possibility(self, start: str, end: str) -> None:
+        """
+        Check if the route is possible without any intermediate stops.
+
+        Parameters
+        ----------
+        start : str
+            The starting location for the journey.
+        end : str
+            The ending location for the journey.
+
+        Raises
+        ------
+        ValueError
+            If the ending location is not reachable within the specified duration.
+        """
         if (
-            get_distance_matrix(self.api_key, self.start[0], self.end[0])["duration_value"]
-            > self.duration
+            get_distance_matrix(self.api_key, start, end)["duration_value"]
+            > self.remaining_duration
         ):
             logger.fatal("Ending location not reachable within the specified duration.")
             raise ValueError("Ending location not reachable within the specified duration.")
@@ -78,7 +96,12 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
         Returns
         -------
         list[dict]
-            A list of nearby places.
+            A list of nearby places, each represented as a dictionary containing place details.
+
+        Notes
+        -----
+        The search is conducted based on the current starting latitude/longitude and the
+        remaining duration converted to meters.
         """
         nearby_places = search_nearby_places(
             self.api_key,
@@ -102,12 +125,17 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
         Parameters
         ----------
         nearby_places : list[dict]
-            A list of nearby places to check.
+            A list of nearby places to check, each represented as a dictionary.
 
         Returns
         -------
         bool
             True if at least one place was reachable, False otherwise.
+
+        Notes
+        -----
+        This method updates the remaining duration and the starting latitude/longitude
+        if a nearby place is reachable.
         """
         for place in nearby_places:
             selected_latlong = place["latlong"]
@@ -128,14 +156,31 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
                 return True  # A place was reachable
         return False  # No places were reachable
 
-    def _finalise_route(self) -> dict[str, str | int]:
+    def _finalise_route(self, start: str, end: str) -> dict[str, str | int]:
         """
         Calculate total route information including the end destination.
+
+        Parameters
+        ----------
+        start : str
+            The starting location for the journey.
+        end : str
+            The ending location for the journey.
 
         Returns
         -------
         dict[str, str | int]
-            A dictionary containing the total route information.
+            A dictionary containing the total route information, including duration and distance.
+
+        Raises
+        ------
+        ValueError
+            If no nearby places were found within the specified duration.
+
+        Notes
+        -----
+        This method computes the total route information using the starting and ending
+        latitude/longitude along with any intermediate stops.
         """
         if not self.intermediate_latlongs:
             logger.fatal("No nearby places found within the specified duration.")
@@ -143,14 +188,14 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
 
         total_route_information = compute_route(
             self.api_key,
-            self.start[1],
-            self.end[1],
+            self.start_latlong,
+            self.end_latlong,
             self.intermediate_latlongs,
         )
 
         logger.debug(f"Total route information: {total_route_information}")
         logger.info(
-            f"The route between {self.start[0]} and {self.end[0]} "
+            f"The route between {start} and {end} "
             f"has been planned successfully with "
             f"{len(self.intermediate_latlongs)} intermediate stops.\n"
             f"It should take "
@@ -162,15 +207,31 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
 
         return total_route_information
 
-    def plan_route(self) -> dict[str, str | int]:
+    def plan_route(self, start: str, end: str, duration: int) -> dict[str, str | int]:
         """
         Plan the route by finding nearby points of interest.
+
+        Parameters
+        ----------
+        start : str
+            The starting location for the journey.
+        end : str
+            The ending location for the journey.
+        duration : int
+            The total duration of the journey, in seconds.
 
         Returns
         -------
         dict[str, str | int]
-            A dictionary containing the route information.
+            A dictionary containing the route information, including duration and distance.
+
+        Notes
+        -----
+        This method initializes the journey and iteratively finds nearby places until
+        the remaining duration is exhausted or no more reachable places are found.
         """
+        self.initialise_journey(start, end, duration)
+
         while self.remaining_duration > 0:
             if len(self.intermediate_latlongs) >= Constants.API_MAX:
                 logger.warning("Maximum number of intermediate stops reached.")
@@ -185,4 +246,4 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
                 logger.warning("No nearby places are reachable within the remaining duration.")
                 break
 
-        return self._finalise_route()
+        return self._finalise_route(start, end)

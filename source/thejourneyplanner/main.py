@@ -19,14 +19,14 @@ def main() -> None:
     """
     user_arguments = command_line_interface()
 
-    route_planner = RoutePlanner(
-        user_arguments["api_key"],
+    route_planner = RoutePlanner(user_arguments["api_key"])
+
+    route_details = route_planner.plan_route(
         user_arguments["start"],
         user_arguments["end"] if user_arguments["end"] else user_arguments["start"],
         user_arguments["duration"] * 60,  # Convert minutes to seconds
     )
 
-    route_details = route_planner.plan_route()
     plot_polyline(
         str(route_details["encoded_polyline"]),
         user_arguments["output"],
