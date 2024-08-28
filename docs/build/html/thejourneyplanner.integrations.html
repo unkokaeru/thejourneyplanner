@@ -86,46 +86,6 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="thejourneyplanner.integrations.google_maps.get_distance_matrix">
-<span class="sig-prename descclassname"><span class="pre">thejourneyplanner.integrations.google_maps.</span></span><span class="sig-name descname"><span class="pre">get_distance_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'metric'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'imperial'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'metric'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#thejourneyplanner.integrations.google_maps.get_distance_matrix" title="Link to this definition">¶</a></dt>
-<dd><p>Retrieve the distance/duration between two locations using the Google Maps Distance Matrix API.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>api_key</strong> (<em>str</em>) – The API key for authenticating requests to the Google Maps API.</p></li>
-<li><p><strong>start_location</strong> (<em>str</em>) – The starting location for the distance matrix request.</p></li>
-<li><p><strong>end_location</strong> (<em>str</em>) – The ending location for the distance matrix request.</p></li>
-<li><p><strong>units</strong> (<em>Literal</em><em>[</em><em>'metric'</em><em>, </em><em>'imperial'</em><em>]</em><em>, </em><em>optional</em>) – The units to use for the distance and duration values, by default ‘metric’.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dictionary containing the distance and duration between the two locations.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict of str to str or int</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If the API request fails or if the locations are not found.</p>
-</dd>
-</dl>
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api_key</span> <span class="o">=</span> <span class="s1">&#39;your_api_key_here&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">start_location</span> <span class="o">=</span> <span class="s1">&#39;London&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">end_location</span> <span class="o">=</span> <span class="s1">&#39;Bury St Edmunds&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">get_distance_matrix</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">start_location</span><span class="p">,</span> <span class="n">end_location</span><span class="p">)</span>
-<span class="go">{</span>
-<span class="go">    &#39;start_location&#39;: &#39;London, UK&#39;,</span>
-<span class="go">    &#39;end_location&#39;: &#39;Bury St Edmunds, Bury Saint Edmunds, UK&#39;,</span>
-<span class="go">    &#39;distance_text&#39;: &#39;133 km&#39;,</span>
-<span class="go">    &#39;distance_value&#39;: 133313,</span>
-<span class="go">    &#39;duration_text&#39;: &#39;1 hour 47 mins&#39;,</span>
-<span class="go">    &#39;duration_value&#39;: 6398</span>
-<span class="go">}</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="thejourneyplanner.integrations.google_maps.search_nearby_places">
 <span class="sig-prename descclassname"><span class="pre">thejourneyplanner.integrations.google_maps.</span></span><span class="sig-name descname"><span class="pre">search_nearby_places</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latlong</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">types_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['tourist_attraction']</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#thejourneyplanner.integrations.google_maps.search_nearby_places" title="Link to this definition">¶</a></dt>
 <dd><p>Search for nearby places using the Google Places API.</p>
