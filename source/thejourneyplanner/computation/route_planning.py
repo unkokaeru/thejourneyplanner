@@ -29,11 +29,11 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
         self.api_key = api_key
         self.start_latlong: tuple[float, float] = (0, 0)
         self.end_latlong: tuple[float, float] = (0, 0)
-        self.remaining_duration = 0
+        self.remaining_duration: float = 0
         self.intermediate_latlongs: list[tuple[float, float]] = []
         self.selected_latlongs: set[tuple[float, float]] = set()
 
-    def initialise_journey(self, start: str, end: str, duration: int) -> None:
+    def initialise_journey(self, start: str, end: str, duration: float) -> None:
         """
         Initialise journey details and calculate start and end latitude/longitude.
 
@@ -43,7 +43,7 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
             The starting location for the journey.
         end : str
             The ending location for the journey.
-        duration : int
+        duration : float
             The total duration of the journey, in seconds.
 
         Raises
@@ -156,7 +156,7 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
                 return True  # A place was reachable
         return False  # No places were reachable
 
-    def _finalise_route(self, start: str, end: str) -> dict[str, str | int]:
+    def _finalise_route(self, start: str, end: str) -> dict[str, str | float]:
         """
         Calculate total route information including the end destination.
 
@@ -169,7 +169,7 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
 
         Returns
         -------
-        dict[str, str | int]
+        dict[str, str | float]
             A dictionary containing the total route information, including duration and distance.
 
         Raises
@@ -207,7 +207,7 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
 
         return total_route_information
 
-    def plan_route(self, start: str, end: str, duration: int) -> dict[str, str | int]:
+    def plan_route(self, start: str, end: str, duration: float) -> dict[str, str | float]:
         """
         Plan the route by finding nearby points of interest.
 
@@ -217,12 +217,12 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
             The starting location for the journey.
         end : str
             The ending location for the journey.
-        duration : int
+        duration : float
             The total duration of the journey, in seconds.
 
         Returns
         -------
-        dict[str, str | int]
+        dict[str, str | float]
             A dictionary containing the route information, including duration and distance.
 
         Notes

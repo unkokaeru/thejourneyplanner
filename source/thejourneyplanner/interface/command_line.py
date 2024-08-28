@@ -35,8 +35,8 @@ def command_line_interface() -> dict[str, Any]:
         action="store",
         type=str,
         required=False,
-        help="Path to save the output.",
-    )  # Path to save the output
+        help="Path to save the output, should end in .html.",
+    )  # Path to save the html output
 
     argparser.add_argument(
         "--start",
