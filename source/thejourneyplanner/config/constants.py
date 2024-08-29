@@ -33,7 +33,7 @@ class Constants:
     FORBIDDEN_CODE: int = 403
 
     # API constants
-    MAX_NEARBY_PLACES: int = 20
+    MAX_NEARBY_PLACES: int = 20  # TODO: Consider the optimal number of nearby places
     API_MAX: int = 8
     LANGUAGE_CODE: str = "en-GB"
 
