@@ -111,7 +111,7 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
 
         return [
             place
-            for place in nearby_places
+            for place in reversed(nearby_places)
             if place["latlong"] not in self.selected_latlongs
             and place["latlong"] != self.end_latlong
         ]
