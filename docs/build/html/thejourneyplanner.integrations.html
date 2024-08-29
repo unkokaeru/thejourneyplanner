@@ -40,6 +40,33 @@
 <span id="thejourneyplanner-integrations-geocoding-module"></span><h2>thejourneyplanner.integrations.geocoding module<a class="headerlink" href="#module-thejourneyplanner.integrations.geocoding" title="Link to this heading">¶</a></h2>
 <p>geocoding.py: Integration with the Geocoder API.</p>
 <dl class="py function">
+<dt class="sig sig-object py" id="thejourneyplanner.integrations.geocoding.forward_geocode">
+<span class="sig-prename descclassname"><span class="pre">thejourneyplanner.integrations.geocoding.</span></span><span class="sig-name descname"><span class="pre">forward_geocode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#thejourneyplanner.integrations.geocoding.forward_geocode" title="Link to this definition">¶</a></dt>
+<dd><p>Get the geographical coordinates (latitude and longitude) for a given address or location.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>location</strong> (<em>str</em>) – The address or location to be geocoded.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing the latitude and longitude of the specified location.
+If the location cannot be determined, returns (None, None).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[float, float]</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the location cannot be determined.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">forward_geocode</span><span class="p">(</span><span class="s2">&quot;London, UK&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
+<span class="go">(51.5074456, -0.1277653)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="thejourneyplanner.integrations.geocoding.get_current_location">
 <span class="sig-prename descclassname"><span class="pre">thejourneyplanner.integrations.geocoding.</span></span><span class="sig-name descname"><span class="pre">get_current_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#thejourneyplanner.integrations.geocoding.get_current_location" title="Link to this definition">¶</a></dt>
 <dd><p>Get the current geographical location of the user based on their IP address.</p>
@@ -153,45 +180,6 @@ If the location cannot be determined, returns (None, None).</p>
 <span class="go">]</span>
 </pre></div>
 </div>
-</dd></dl>
-
-</section>
-<section id="module-thejourneyplanner.integrations.nominatim">
-<span id="thejourneyplanner-integrations-nominatim-module"></span><h2>thejourneyplanner.integrations.nominatim module<a class="headerlink" href="#module-thejourneyplanner.integrations.nominatim" title="Link to this heading">¶</a></h2>
-<p>nominatim.py: Functions for interacting with the Nominatim API.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="thejourneyplanner.integrations.nominatim.find_longitude_and_latitude">
-<span class="sig-prename descclassname"><span class="pre">thejourneyplanner.integrations.nominatim.</span></span><span class="sig-name descname"><span class="pre">find_longitude_and_latitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#thejourneyplanner.integrations.nominatim.find_longitude_and_latitude" title="Link to this definition">¶</a></dt>
-<dd><p>Find the longitude and latitude of a location using the Nominatim API.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>location</strong> (<em>str</em>) – The location to find the longitude and latitude of.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A tuple containing the longitude and latitude of the location.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple[float, float]</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If the location is not found or if an HTTP error occurs.</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">find_longitude_and_latitude</span><span class="p">(</span><span class="s2">&quot;New York&quot;</span><span class="p">)</span>
-<span class="go">(40.7128, -74.0060)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">find_longitude_and_latitude</span><span class="p">(</span><span class="s2">&quot;Los Angeles&quot;</span><span class="p">)</span>
-<span class="go">(34.0522, -118.2437)</span>
-</pre></div>
-</div>
-<p class="rubric">Notes</p>
-<p>This function finds the longitude and latitude of a given location.
-It takes in the location as a string and returns a tuple containing
-the longitude and latitude of the location.
-It uses the Nominatim API to find the location. If the location is
-not found, it raises aValueError.</p>
 </dd></dl>
 
 </section>
