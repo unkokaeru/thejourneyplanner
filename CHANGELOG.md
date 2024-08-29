@@ -7,6 +7,7 @@ Changelog
 
 Fix
 ~~~
+- Default map path in command line interface. [William F]
 - Method name. [William F]
 - Minor bug. [William F]
 - Log creation bug. [William F]
@@ -25,6 +26,17 @@ Fix
 
 Other
 ~~~~~
+- Merge branch 'main' of https://github.com/unkokaeru/thejourneyplanner.
+  [William F]
+- @auto Update docs. [unkokaeru]
+- Feat: add verbosity argument. [William F]
+- Feat: default start location based on ip address. [William F]
+- Feat: default journey duration as 60 minutes. [William F]
+- Refactor: old import. [William F]
+- Feat: add log path as interface argument. [William F]
+- Feat: new searching logic starts furthest away. [William F]
+- Bump version: 0.2.6 -> 0.2.7. [William F]
+- Update CHANGELOG.md. [William F]
 - @auto Update docs. [unkokaeru]
 - @auto Formatting. [unkokaeru]
 - Refactor: remove distance martix api and use routes api. [William F]
