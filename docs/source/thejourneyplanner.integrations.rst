@@ -4,6 +4,14 @@ thejourneyplanner.integrations package
 Submodules
 ----------
 
+thejourneyplanner.integrations.geocoding module
+-----------------------------------------------
+
+.. automodule:: thejourneyplanner.integrations.geocoding
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 thejourneyplanner.integrations.google\_maps module
 --------------------------------------------------
 
