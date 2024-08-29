@@ -77,7 +77,8 @@ def command_line_interface() -> dict[str, Any]:
         "-d",
         action="store",
         type=int,
-        required=True,
+        required=False,
+        default=60,
         help="Duration of the journey in minutes.",
     )  # Duration of the journey
 
