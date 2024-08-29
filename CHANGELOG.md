@@ -26,6 +26,17 @@ Fix
 
 Other
 ~~~~~
+- @auto Update docs. [unkokaeru]
+- Docs: add todo. [William F]
+- Feat: update journey logic to stay within time constraints. [William
+  F]
+- Feat: migrate from nominatim to geocoder api. [William F]
+- @auto Update docs. [unkokaeru]
+- Merge branch 'main' of https://github.com/unkokaeru/thejourneyplanner.
+  [William F]
+- @auto Update docs. [unkokaeru]
+- Bump version: 0.2.7 -> 0.3.0. [William F]
+- Update CHANGELOG.md. [William F]
 - Merge branch 'main' of https://github.com/unkokaeru/thejourneyplanner.
   [William F]
 - @auto Update docs. [unkokaeru]
