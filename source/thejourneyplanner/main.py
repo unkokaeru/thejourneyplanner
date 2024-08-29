@@ -26,10 +26,14 @@ def main() -> None:
     duration: float = user_arguments["duration"] * 60  # Convert minutes to seconds
     map_output_location: Path = Path(user_arguments["map_output"])
     log_output_location: Path = user_arguments["log_output"]
-    open_map = user_arguments["open_map"] if user_arguments["open_map"] else False
+    open_map = user_arguments["open_map"]
+    verbose = user_arguments["verbose"]
 
     # Setup logging
-    setup_logging(log_output_location)
+    if verbose:
+        setup_logging(log_output_location, console_logging_level="DEBUG")
+    else:
+        setup_logging(log_output_location)
 
     # Plan the route
     route_planner = RoutePlanner(user_arguments["api_key"])

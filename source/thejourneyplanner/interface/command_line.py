@@ -92,6 +92,14 @@ def command_line_interface() -> dict[str, Any]:
         help="Automatically open the map in the browser after generation.",
     )  # Automatically open the map in the browser after generation
 
+    argparser.add_argument(
+        "--verbose",
+        "-v",
+        action="store_true",
+        required=False,
+        help="Increase logging verbosity.",
+    )  # Increase logging verbosity
+
     parsed_args = argparser.parse_args()
 
     # Create a dictionary to return the parsed arguments
@@ -103,7 +111,8 @@ def command_line_interface() -> dict[str, Any]:
         "end": parsed_args.end,
         "duration": parsed_args.duration,
         "open_map": parsed_args.open_map,
-    }  # TODO: Add more arguments as needed, e.g. logging level and output file
+        "verbose": parsed_args.verbose,
+    }
 
     logger.debug(f"Arguments: {arguments}")
 
