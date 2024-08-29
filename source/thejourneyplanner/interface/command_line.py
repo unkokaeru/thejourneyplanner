@@ -4,6 +4,8 @@ import logging
 from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
 from typing import Any
 
+from ..config.constants import Constants
+
 logger = logging.getLogger(__name__)
 
 
@@ -35,6 +37,7 @@ def command_line_interface() -> dict[str, Any]:
         action="store",
         type=str,
         required=False,
+        default=Constants.DEFAULT_MAP_SAVE_PATH,
         help="Path to save the output, should end in .html.",
     )  # Path to save the html output
 
