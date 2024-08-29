@@ -137,11 +137,15 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
         """
         for place in nearby_places:
             selected_latlong = place["latlong"]
+
             route_to_selection = compute_route(self.api_key, self.start_latlong, selected_latlong)
-
             logger.debug(f"Route to selection: {route_to_selection}")
+            route_to_end = compute_route(self.api_key, selected_latlong, self.end_latlong)
+            logger.debug(f"Route to end: {route_to_end}")
 
-            if route_to_selection["duration_seconds"] <= self.remaining_duration:
+            if (
+                route_to_selection["duration_seconds"] + route_to_end["duration_seconds"]
+            ) <= self.remaining_duration:
                 self.remaining_duration -= route_to_selection["duration_seconds"]
                 self.intermediate_latlongs.append(selected_latlong)
                 self.selected_latlongs.add(selected_latlong)
