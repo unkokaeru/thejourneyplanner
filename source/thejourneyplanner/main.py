@@ -25,16 +25,8 @@ def main() -> None:
     start: str = user_arguments["start"]
     end: str = user_arguments["end"] if user_arguments["end"] else start
     duration: float = user_arguments["duration"] * 60  # Convert minutes to seconds
-    map_output_location: Path = (
-        Path(user_arguments["output"])
-        if user_arguments["output"]
-        else Constants.DEFAULT_MAP_SAVE_PATH
-    )
-    log_output_location: Path = (
-        map_output_location.parent / "log.txt"
-        if user_arguments["output"]
-        else Constants.DEFAULT_LOG_SAVE_PATH
-    )
+    map_output_location: Path = Path(user_arguments["map_output"])
+    log_output_location: Path = user_arguments["log_output"]
     open_map = user_arguments["open_map"] if user_arguments["open_map"] else False
 
     # Setup logging

@@ -32,7 +32,7 @@ def command_line_interface() -> dict[str, Any]:
     )  # API key
 
     argparser.add_argument(
-        "--output",
+        "--map_output",
         "-o",
         action="store",
         type=str,
@@ -40,6 +40,16 @@ def command_line_interface() -> dict[str, Any]:
         default=Constants.DEFAULT_MAP_SAVE_PATH,
         help="Path to save the output, should end in .html.",
     )  # Path to save the html output
+
+    argparser.add_argument(
+        "--log_output",
+        "-l",
+        action="store",
+        type=str,
+        required=False,
+        default=Constants.DEFAULT_LOG_SAVE_PATH,
+        help="Path to save the log file, should end in .txt.",
+    )  # Path to save the log file
 
     argparser.add_argument(
         "--start",
@@ -84,7 +94,8 @@ def command_line_interface() -> dict[str, Any]:
     # Create a dictionary to return the parsed arguments
     arguments: dict[str, Any] = {
         "api_key": parsed_args.api_key,
-        "output": parsed_args.output,
+        "map_output": parsed_args.map_output,
+        "log_output": parsed_args.log_output,
         "start": parsed_args.start,
         "end": parsed_args.end,
         "duration": parsed_args.duration,
