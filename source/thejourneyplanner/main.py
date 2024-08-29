@@ -4,7 +4,6 @@ from logging import shutdown as shutdown_logging
 from pathlib import Path
 
 from .computation.route_planning import RoutePlanner
-from .config.constants import Constants
 from .interface.command_line import command_line_interface
 from .logs.setup_logging import setup_logging
 from .utilities.polyline_interaction import plot_polyline
