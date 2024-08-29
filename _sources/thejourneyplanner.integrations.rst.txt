@@ -20,14 +20,6 @@ thejourneyplanner.integrations.google\_maps module
    :undoc-members:
    :show-inheritance:
 
-thejourneyplanner.integrations.nominatim module
------------------------------------------------
-
-.. automodule:: thejourneyplanner.integrations.nominatim
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 
