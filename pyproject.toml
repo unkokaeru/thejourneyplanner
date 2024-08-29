@@ -17,6 +17,7 @@ include = ["LICENSE", "source/thejourneyplanner/py.typed", "source/thejourneypla
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
 folium = "^0.12.1"
+geocoder = "^1.38.1"
 polyline = "^1.4.0"
 requests = "^2.25.1"
 rich = "^12.0.0"

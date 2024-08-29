@@ -5,6 +5,7 @@ from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
 from typing import Any
 
 from ..config.constants import Constants
+from ..integrations.geocoding import get_current_location
 
 logger = logging.getLogger(__name__)
 
@@ -56,7 +57,8 @@ def command_line_interface() -> dict[str, Any]:
         "-s",
         action="store",
         type=str,
-        required=True,
+        required=False,
+        default=get_current_location(),
         help="Starting location for the journey.",
     )  # Starting location
 
