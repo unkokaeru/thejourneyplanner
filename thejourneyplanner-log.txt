@@ -1,0 +1,12 @@
+[15:52:59] - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): nominatim.openstreetmap.org:443
+[15:53:00] - urllib3.connectionpool - DEBUG - https://nominatim.openstreetmap.org:443 "GET /search?q=50+Park+Street+LN1+1UR&format=jsonv2&addressdetails=1&limit=1 HTTP/1.1" 403 941
+[15:53:00] - geocoder.base - ERROR - Status code 403 from https://nominatim.openstreetmap.org/search: ERROR - 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/search?q=50+Park+Street+LN1+1UR&format=jsonv2&addressdetails=1&limit=1
+[15:53:18] - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): nominatim.openstreetmap.org:443
+[15:53:18] - urllib3.connectionpool - DEBUG - https://nominatim.openstreetmap.org:443 "GET /search?q=50+Park+Street+Lincoln&format=jsonv2&addressdetails=1&limit=1 HTTP/1.1" 403 941
+[15:53:18] - geocoder.base - ERROR - Status code 403 from https://nominatim.openstreetmap.org/search: ERROR - 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/search?q=50+Park+Street+Lincoln&format=jsonv2&addressdetails=1&limit=1
+[15:53:24] - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): nominatim.openstreetmap.org:443
+[15:53:25] - urllib3.connectionpool - DEBUG - https://nominatim.openstreetmap.org:443 "GET /search?q=50+Park+Street+Lincoln+UK&format=jsonv2&addressdetails=1&limit=1 HTTP/1.1" 403 941
+[15:53:25] - geocoder.base - ERROR - Status code 403 from https://nominatim.openstreetmap.org/search: ERROR - 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/search?q=50+Park+Street+Lincoln+UK&format=jsonv2&addressdetails=1&limit=1
+[15:53:33] - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): nominatim.openstreetmap.org:443
+[15:53:34] - urllib3.connectionpool - DEBUG - https://nominatim.openstreetmap.org:443 "GET /search?q=Lincoln+UK&format=jsonv2&addressdetails=1&limit=1 HTTP/1.1" 403 941
+[15:53:34] - geocoder.base - ERROR - Status code 403 from https://nominatim.openstreetmap.org/search: ERROR - 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/search?q=Lincoln+UK&format=jsonv2&addressdetails=1&limit=1

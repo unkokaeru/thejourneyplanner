@@ -36,7 +36,7 @@ def forward_geocode(location: str) -> tuple[float, float]:
         raise ValueError("Unable to geocode the specified location.")
 
 
-def get_current_location() -> tuple[float, float]:
+def get_current_location() -> tuple[float, float]:  # TODO: Improve this function's accuracy
     """
     Get the current geographical location of the user based on their IP address.
 
