@@ -40,30 +40,20 @@
 <span id="thejourneyplanner-integrations-geocoding-module"></span><h2>thejourneyplanner.integrations.geocoding module<a class="headerlink" href="#module-thejourneyplanner.integrations.geocoding" title="Link to this heading">¶</a></h2>
 <p>geocoding.py: Integration with the Geocoder API.</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="thejourneyplanner.integrations.geocoding.forward_geocode">
-<span class="sig-prename descclassname"><span class="pre">thejourneyplanner.integrations.geocoding.</span></span><span class="sig-name descname"><span class="pre">forward_geocode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#thejourneyplanner.integrations.geocoding.forward_geocode" title="Link to this definition">¶</a></dt>
-<dd><p>Get the geographical coordinates (latitude and longitude) for a given address or location.</p>
+<dt class="sig sig-object py" id="thejourneyplanner.integrations.geocoding.extract_address_place_id">
+<span class="sig-prename descclassname"><span class="pre">thejourneyplanner.integrations.geocoding.</span></span><span class="sig-name descname"><span class="pre">extract_address_place_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#thejourneyplanner.integrations.geocoding.extract_address_place_id" title="Link to this definition">¶</a></dt>
+<dd><p>Extracts a list of tuples containing addresses and place IDs from the API response.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>location</strong> (<em>str</em>) – The address or location to be geocoded.</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – The response data from the Place Autocomplete API.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A tuple containing the latitude and longitude of the specified location.
-If the location cannot be determined, returns (None, None).</p>
+<dd class="field-even"><p>A list of tuples where each tuple contains the address and the corresponding place ID.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple[float, float]</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If the location cannot be determined.</p>
+<dd class="field-odd"><p>List[Tuple[str, str]]</p>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">forward_geocode</span><span class="p">(</span><span class="s2">&quot;London, UK&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
-<span class="go">(51.5074456, -0.1277653)</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="py function">
@@ -88,6 +78,29 @@ If the location cannot be determined, returns (None, None).</p>
 <span class="go">(37.7749, -122.4194)</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="thejourneyplanner.integrations.geocoding.get_latitude_longitude">
+<span class="sig-prename descclassname"><span class="pre">thejourneyplanner.integrations.geocoding.</span></span><span class="sig-name descname"><span class="pre">get_latitude_longitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#thejourneyplanner.integrations.geocoding.get_latitude_longitude" title="Link to this definition">¶</a></dt>
+<dd><p>Get the latitude and longitude of a location using the Place Autocomplete API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>api_key</strong> (<em>str</em>) – The API key for the Google Maps API.</p></li>
+<li><p><strong>location</strong> (<em>str</em>) – The location to get the latitude and longitude for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing the latitude and longitude of the location.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[float, float]</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Uses the Place Autocomplete API to get the latitude and longitude of a location.
+It asks the user to select the correct location if multiple results are found.</p>
 </dd></dl>
 
 </section>
@@ -138,6 +151,41 @@ If the location cannot be determined, returns (None, None).</p>
 <span class="go">}</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="thejourneyplanner.integrations.google_maps.place_autocomplete">
+<span class="sig-prename descclassname"><span class="pre">thejourneyplanner.integrations.google_maps.</span></span><span class="sig-name descname"><span class="pre">place_autocomplete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'en-GB'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict_bounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">types</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#thejourneyplanner.integrations.google_maps.place_autocomplete" title="Link to this definition">¶</a></dt>
+<dd><p>Interacts with the Google Place Autocomplete API (New) to retrieve place predictions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>api_key</strong> (<em>str</em>) – Your API key for accessing the Google Places API.</p></li>
+<li><p><strong>input_text</strong> (<em>str</em>) – The text string on which to search. The Place Autocomplete service will return candidate
+matches based on this string.</p></li>
+<li><p><strong>components</strong> (<em>str</em><em>, </em><em>optional</em>) – A grouping of places to restrict results (e.g., ‘country:fr’).</p></li>
+<li><p><strong>language</strong> (<em>str</em><em>, </em><em>optional</em>) – The language in which to return results.</p></li>
+<li><p><strong>location</strong> (<em>str</em><em>, </em><em>optional</em>) – The point around which to retrieve place information, specified as ‘latitude,longitude’.</p></li>
+<li><p><strong>radius</strong> (<em>float</em><em>, </em><em>optional</em>) – Defines the distance (in meters) within which to return place results.</p></li>
+<li><p><strong>offset</strong> (<em>int</em><em>, </em><em>optional</em>) – The position of the last character that the service uses to match predictions.</p></li>
+<li><p><strong>origin</strong> (<em>str</em><em>, </em><em>optional</em>) – The origin point from which to calculate straight-line distance to the destination.</p></li>
+<li><p><strong>region</strong> (<em>str</em><em>, </em><em>optional</em>) – The region code, specified as a ccTLD (e.g., ‘uk’).</p></li>
+<li><p><strong>session_token</strong> (<em>str</em><em>, </em><em>optional</em>) – A random string which identifies an autocomplete session for billing purposes.</p></li>
+<li><p><strong>strict_bounds</strong> (<em>bool</em><em>, </em><em>optional</em>) – Returns only those places that are strictly within the region defined by location and
+radius.</p></li>
+<li><p><strong>types</strong> (<em>str</em><em>, </em><em>optional</em>) – Restrict results to a certain type (e.g., ‘establishment|geocode’).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the predictions and status of the request.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the API request fails or if the response contains an error.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
