@@ -3,7 +3,7 @@
 import logging
 
 from ..config.constants import Constants
-from ..integrations.geocoding import forward_geocode
+from ..integrations.geocoding import get_latitude_longitude
 from ..integrations.google_maps import compute_route, search_nearby_places
 from ..utilities.unit_conversion import convert_distance, convert_duration
 
@@ -49,8 +49,8 @@ class RoutePlanner:  # TODO: Re-work logic to create a more circular route
         """
         self.remaining_duration = duration
 
-        self.start_latlong = forward_geocode(start)
-        self.end_latlong = forward_geocode(end)
+        self.start_latlong = get_latitude_longitude(self.api_key, start)
+        self.end_latlong = get_latitude_longitude(self.api_key, end)
 
         logger.debug(
             f"Initial journey details: "

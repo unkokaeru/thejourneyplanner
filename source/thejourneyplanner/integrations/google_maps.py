@@ -11,6 +11,112 @@ from ..config.constants import Constants
 logger = logging.getLogger(__name__)
 
 
+def place_autocomplete(
+    api_key: str,
+    input_text: str,
+    components: str | None = None,
+    language: str | None = Constants.LANGUAGE_CODE,
+    location: str | None = None,
+    radius: float | None = None,
+    offset: int | None = None,
+    origin: str | None = None,
+    region: str | None = None,
+    session_token: str | None = None,
+    strict_bounds: bool | None = None,
+    types: str | None = None,
+) -> dict[str, Any]:
+    """
+    Interacts with the Google Place Autocomplete API (New) to retrieve place predictions.
+
+    Parameters
+    ----------
+    api_key : str
+        Your API key for accessing the Google Places API.
+    input_text : str
+        The text string on which to search. The Place Autocomplete service will return candidate
+        matches based on this string.
+    components : str, optional
+        A grouping of places to restrict results (e.g., 'country:fr').
+    language : str, optional
+        The language in which to return results.
+    location : str, optional
+        The point around which to retrieve place information, specified as 'latitude,longitude'.
+    radius : float, optional
+        Defines the distance (in meters) within which to return place results.
+    offset : int, optional
+        The position of the last character that the service uses to match predictions.
+    origin : str, optional
+        The origin point from which to calculate straight-line distance to the destination.
+    region : str, optional
+        The region code, specified as a ccTLD (e.g., 'uk').
+    session_token : str, optional
+        A random string which identifies an autocomplete session for billing purposes.
+    strict_bounds : bool, optional
+        Returns only those places that are strictly within the region defined by location and
+        radius.
+    types : str, optional
+        Restrict results to a certain type (e.g., 'establishment|geocode').
+
+    Returns
+    -------
+    Dict[str, Any]
+        A dictionary containing the predictions and status of the request.
+
+    Raises
+    ------
+    ValueError
+        If the API request fails or if the response contains an error.
+    """
+    base_url = "https://places.googleapis.com/v1/places:autocomplete"
+
+    # Construct the request body
+    request_body: dict[str, Any] = {
+        "input": input_text,
+        "languageCode": language,
+    }
+
+    if components:
+        request_body["includedRegionCodes"] = components.split("|")
+    if location:
+        lat, lng = map(float, location.split(","))
+        if radius:
+            request_body["locationBias"] = {
+                "circle": {"center": {"latitude": lat, "longitude": lng}, "radius": radius}
+            }
+        else:
+            request_body["locationBias"] = {"point": {"latitude": lat, "longitude": lng}}
+    if offset is not None:
+        request_body["inputOffset"] = offset
+    if origin:
+        request_body["origin"] = origin
+    if region:
+        request_body["regionCode"] = region
+    if session_token:
+        request_body["sessionToken"] = session_token
+    if strict_bounds:
+        request_body["locationRestriction"] = "strict"
+    if types:
+        request_body["includedPrimaryTypes"] = types.split("|")
+
+    # Make the request to the API
+    headers = {"Content-Type": "application/json", "X-Goog-Api-Key": api_key}
+
+    response = requests.post(base_url, json=request_body, headers=headers)
+
+    # Check for a successful response
+    if response.status_code == 200:
+        data: dict[str, Any] = response.json()
+
+        if data.get("status") == "REQUEST_DENIED":
+            logger.error(f"Error: {data['status']}")
+            raise ValueError(f"Error: {data['status']}")
+
+        return data
+    else:
+        logger.error(f"Error: {response.status_code}")
+        raise ValueError(f"Error: {response.status_code}")
+
+
 def search_nearby_places(
     api_key: str,
     latlong: tuple[float, float],
