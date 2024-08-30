@@ -27,6 +27,14 @@ Fix
 Other
 ~~~~~
 - @auto Update docs. [unkokaeru]
+- Merge branch 'main' of https://github.com/unkokaeru/thejourneyplanner.
+  [William F]
+- @auto Update docs. [unkokaeru]
+- Feat: improve forward geocoding and include selection. [William F]
+- Docs: add todo. [William F]
+- Bump version: 0.3.0 -> 0.3.1. [William F]
+- Update CHANGELOG.md. [William F]
+- @auto Update docs. [unkokaeru]
 - Docs: add todo. [William F]
 - Feat: update journey logic to stay within time constraints. [William
   F]
