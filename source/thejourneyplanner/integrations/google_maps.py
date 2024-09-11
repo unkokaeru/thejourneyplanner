@@ -163,6 +163,12 @@ def search_nearby_places(
         },
         ...
     ]
+
+    Note
+    ----
+    Search radius is limited to 50000 meters (50 km) by the API. Hence, the maximum value for the
+    radius parameter is 50000 meters. If it's larger then the function will cap it at 50000 meters
+    and raise a warning.
     """
     url = Constants.NEARBY_SEARCH_URL
     field_mask = Constants.NEARBY_SEARCH_FIELD_MASK
@@ -175,13 +181,21 @@ def search_nearby_places(
         "locationRestriction": {
             "circle": {
                 "center": {"latitude": latlong[0], "longitude": latlong[1]},
-                "radius": radius,
+                "radius": (
+                    radius if radius <= Constants.MAX_NEARBY_RADIUS else Constants.MAX_NEARBY_RADIUS
+                ),
             }
         },
         "rankPreference": Constants.NEARBY_SEARCH_RANK_BY,
         "includedTypes": types_list,
         "maxResultCount": Constants.MAX_NEARBY_PLACES,
     }
+
+    if radius > Constants.MAX_NEARBY_RADIUS:
+        logger.warning(
+            f"Search radius is capped at {Constants.MAX_NEARBY_RADIUS} meters. "
+            f"Requested radius was {radius} meters."
+        )
 
     logger.debug(
         f"Searching nearby places with...\n"

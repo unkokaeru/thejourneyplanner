@@ -34,6 +34,7 @@ class Constants:
 
     # API constants
     MAX_NEARBY_PLACES: int = 20  # TODO: Consider the optimal number of nearby places
+    MAX_NEARBY_RADIUS: int = 50000  # meters
     API_MAX: int = 8
     LANGUAGE_CODE: str = "en-GB"
 
