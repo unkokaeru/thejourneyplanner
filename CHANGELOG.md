@@ -7,6 +7,8 @@ Changelog
 
 Fix
 ~~~
+- Cap radius for nearby places api. [William F]
+- Remove accidental log. [William F]
 - Default map path in command line interface. [William F]
 - Method name. [William F]
 - Minor bug. [William F]
@@ -26,6 +28,12 @@ Fix
 
 Other
 ~~~~~
+- @auto Update docs. [unkokaeru]
+- Merge branch 'main' of https://github.com/unkokaeru/thejourneyplanner.
+  [William F]
+- @auto Update docs. [unkokaeru]
+- Bump version: 0.3.1 -> 0.4.0. [William F]
+- Update CHANGELOG.md. [William F]
 - @auto Update docs. [unkokaeru]
 - Merge branch 'main' of https://github.com/unkokaeru/thejourneyplanner.
   [William F]
